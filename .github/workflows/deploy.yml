@@ -6,10 +6,9 @@ on:
       - master
 
 jobs:
-  runs-on: ubuntu-latest
-  if: github.repository == 'SushantBandhani/week-18-2-ci-cd'  # Replace with your repo details
   build-and-push:
     runs-on: ubuntu-latest
+    if: github.repository == 'SushantBandhani/week-18-2-ci-cd'  # Replace with your repo details
     steps:
     - name: Check Out Repo
       uses: actions/checkout@v2
@@ -38,7 +37,7 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          sudo docker pull 100xdevs/week-18-class:latest
+          sudo docker pull sushant767/week-18-class:latest
           sudo docker stop web-app || true
           sudo docker rm web-app || true
-          sudo docker run -d --name web-app -p 3005:3000 100xdevs/week-18-class:latest
+          sudo docker run -d --name web-app -p 3005:3000 sushant767/week-18-class:latest
