@@ -30,7 +30,7 @@ jobs:
     - name: Verify Pushed Image
       run: docker pull sushant767/week-18-class:latest  # Replace with your Docker Hub username and repository
 
-    - name: Deploy to EC2
+    # - name: Deploy to EC2
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.SSH_HOST }}
